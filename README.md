@@ -1,2 +1,2 @@
-# cicada-node
-cicada-node
+# social_network
+Univerisity Social Network (S6 Project)

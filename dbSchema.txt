@@ -1,0 +1,115 @@
+Schema
+------
+
+--
+--  TABLE STRUCTURE FOR `sn`
+--
+
+
+
+CREATE database cn;
+use cn;
+
+##############################################################
+CREATE USER 'user'@'localhost' IDENTIFIED BY '*******';
+GRANT ALL PRIVILEGES ON vyapti19 . * TO 'user'@'localhost';
+mysql -u root -p sn < sn.sql
+FLUSH PRIVILEGES;
+##############################################################
+
+
+
+# TABLE 1 user
+
+CREATE TABLE IF NOT EXISTS `user` (
+    `name` varchar(30) NOT NULL,
+    `email` varchar(50) NOT NULL UNIQUE,
+    `collegeID` varchar(10) NOT NULL PRIMARY KEY,
+    `password` varchar(20) NOT NULL,
+    `avatar` varchar(200) NOT NULL DEFAULT "default/avatar-anonymous.png",
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `edit_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+# TABLE 2 auth
+ 
+CREATE TABLE IF NOT EXISTS `auth` (
+    `email` varchar(50) NOT NULL PRIMARY KEY,
+    `session` char(64)  NOT NULL UNIQUE,
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+# TABLE 3 posts
+
+CREATE TABLE IF NOT EXISTS `posts` (
+    `postid` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `post_link` varchar(100) NOT NULL,
+    `likes` int DEFAULT 0,
+    `views` int DEFAULT 0,
+    `shares` int DEFAULT 0,
+    `edit` tinyint(1) DEFAULT 0,
+    `content` json,
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `edit_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE posts AUTO_INCREMENT=100;
+
+
+# TABLE 4 details
+
+CREATE TABLE IF NOT EXISTS `details` (
+    `collegeID` varchar(10) NOT NULL,
+    `avatar` varchar(200) DEFAULT NULL,
+    `summary` json,
+    `skills` json,
+    `contacts` json,
+    `education` json,
+    `accomplishments` json,
+    `interests` json,
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `edit_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+# TABLE 6 verify
+
+CREATE TABLE IF NOT EXISTS `verify` (
+    `collegeID` varchar(10) NOT NULL PRIMARY KEY,
+    `verified` tinyint(1) NOT NULL DEFAULT 0,
+    `otp` varchar(10) NOT NULL,
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+
+
+##########################################################
+
+CREATE database cn;
+use cn;
+
+CREATE TABLE IF NOT EXISTS `user` (
+    `name` varchar(30) NOT NULL,
+    `email` varchar(50) NOT NULL UNIQUE,
+    `collegeID` varchar(10) NOT NULL PRIMARY KEY,
+    `password` varchar(20) NOT NULL,
+    `avatar` varchar(200) NOT NULL DEFAULT "default/avatar-anonymous.png",
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `edit_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `auth` (
+    `email` varchar(50) NOT NULL PRIMARY KEY,
+    `session` char(64)  NOT NULL UNIQUE,
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+;
