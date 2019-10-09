@@ -1,2 +1,2 @@
-# social_network
-Univerisity Social Network (S6 Project)
+# Cicada
+Cicada for ACM MITS 2019 October
