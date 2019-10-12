@@ -66,3 +66,5 @@ typings/
 
 #views/usn_avatar_images/**
 #views/usn_posts_images/**
+
+config.json

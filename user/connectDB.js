@@ -1,10 +1,14 @@
 var mysql = require('mysql');
+var fs = require("fs")
+
+var content = fs.readFileSync("config.json");
+var config = JSON.parse(content);
 
 var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',    // snu
-    password: '12345',
-    database: 'cn'  // sn
+    host: config.database["host"],
+    user: config.database["user"],
+    password: config.database["password"],
+    database: config.database["database"]
 });
 
 db.connect((err) => {
