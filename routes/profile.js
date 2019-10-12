@@ -171,8 +171,18 @@ router.get('/', function (req, res, next) {
                 */
 
 
-                res.send("<h1>Dashboard is coming soon</h1>")
+               res.render('profile', {
+                pageTitle: 'USN | Home',
+                name: "Name",
+                avatar: 'usn_avatar_images/' + "avatar",
+                goBack: '0',
 
+                level: '9',
+                total: '58',
+                puzzles: '12'
+            });
+
+            // res.send("<h1>Dashboard is coming soon</h1>")
             }
         });
     }

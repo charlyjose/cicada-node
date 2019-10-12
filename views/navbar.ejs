@@ -9,9 +9,7 @@
 
         <div class="container">
             <div class="navbar-brand">
-                <img src="images/usnlogo.jpeg" width="15%" height="15%">
-
-                <span>University Social Network</span>
+                <span>ACM Cicada</span>
             </div>
         </div>
 
@@ -24,10 +22,8 @@
     <div class="header">
         <div class="container">
             <div class="media text-white">
-                <img src=<%= avatar %> class="avatar img-fluid rounded-circle mr-3" alt="Charly Jose" />
                 <div class="media-body">
                     <h3 class="mb-1 text-white font-weight-normal"><%= name %></h3>
-                    <!-- <span class=" font-weight-normal"><%= address %></span> -->
                 </div>
             </div>
         </div>
@@ -61,13 +57,9 @@
                                 <h5 class="card-title mb-0">Main Navigation</h5>
                             </div>
                             <div class="sidebar-content">
-                                <a href="/feeds" class="sidebar-item">
-                                    <i class="align-middle mr-1 fas fa-fw fa-stream"></i> <span
-                                        class="align-middle">Feeds</span>
-                                </a>
                                 <a href="/profile" class="sidebar-item">
                                     <i class="align-middle mr-1 fas fa-fw fa-user-circle"></i> <span
-                                        class="align-middle">Profile</span>
+                                        class="align-middle">Dashboard</span>
                                 </a>
                                 <a href="/logout" class="sidebar-item">
                                     <i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span
@@ -86,57 +78,27 @@
                             <div class="card-header">
                                 <h5 class="card-title mb-0">General</h5>
                             </div>
+                            <div class="sidebar-content">                                
+                                <a class="sidebar-item" href="/writepost"><i
+                                        class="align-middle mr-1 fas fa-fw fa-plus"></i>Feedback</a>
+                                <a class="sidebar-item" href="/writepost"><i
+                                    class="align-middle mr-1 fas fa-comment-alt"></i>Complaints</a>
+                        </div>
+                        
                             <div class="sidebar-content">
                                 <a class="sidebar-item" href="#settings" data-toggle="collapse">
                                     <i class="align-middle mr-1 fas fa-fw fa-cog"></i> <span
                                         class="align-middle">Settings</span>
                                 </a>
                                 <div class="sidebar-dropdown collapse" id="settings" data-parent="#sidebar">
-                                    <a class="sidebar-item" href="/reset-username"><i
-                                            class="align-middle mr-1 fas fa-fw fa-user"></i>Username</a>
                                     <a class="sidebar-item" href="/reset-password"><i
-                                            class="align-middle mr-1 fas fa-fw fa-key"></i>Password</a>
+                                            class="align-middle mr-1 fas fa-fw fa-key"></i>Change Password</a>
                                     <a class="sidebar-item" href="/reset-contacts"><i
-                                            class="align-middle mr-1 fas fa-fw fa-address-card"></i>Contact</a>
-                                    <a class="sidebar-item" href="/delete-account"><i
-                                            class="align-middle mr-1 fas fa-fw fa-user-slash"></i>Delete Account</a>
+                                            class="align-middle mr-1 fas fa-fw fa-address-card"></i>Change Email</a>
                                 </div>
                             </div>
-                            <div class="sidebar-content">
-                                <a class="sidebar-item" href="#create" data-toggle="collapse">
-                                    <i class="align-middle mr-1 fas fa-fw fa-lightbulb"></i> <span
-                                        class="align-middle">Create</span>
-                                </a>
-                                <div class="sidebar-dropdown collapse" id="create" data-parent="#sidebar">
-                                    <a class="sidebar-item" href="/writepost"><i
-                                            class="align-middle mr-1 fas fa-fw fa-plus"></i>Post</a>
-                                    <a class="sidebar-item" href="/writestatus"><i
-                                            class="align-middle mr-1 fas fa-fw fa-signal"></i>Status</a>
-                                </div>
-                            </div>
+                            
 
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Extras</h5>
-                            </div>
-                            <div class="sidebar-content">
-                                <a href="documentation.html" class="sidebar-item">
-                                    <i class="align-middle mr-1 fab fa-fw fa-connectdevelop"></i> <span
-                                        class="align-middle">Connect</span>
-                                </a>
-                                <a href="documentation.html" class="sidebar-item">
-                                    <i class="align-middle mr-1 fas fa-fw fa-university"></i> <span
-                                        class="align-middle">University
-                                        Updates</span>
-                                </a>
-                                <a href="documentation.html" class="sidebar-item">
-                                    <i class="align-middle mr-1 fas fa-fw fa-school"></i> <span
-                                        class="align-middle">College
-                                        Updates</span>
-                                </a>
-                            </div>
                         </div>
 
                         <% if(goBack === '1') { %>
