@@ -1,11 +1,11 @@
-var express = require('express');   //rqd
-var router = express.Router();      //rqd
-var db = require('../connectDB');   //rqd
+var express = require('express');
+var router = express.Router();
+var db = require('../connectDB');
 var path = require('path');
 var multer = require('multer');
 var randomstring = require('randomstring');
 var cryptoRandomString = require('crypto-random-string');
-var transporter = require('../mailService');    //rqd
+var transporter = require('../mailService');
 
 
 // Posts image store directory
@@ -70,7 +70,7 @@ router.get('/', function (req, res, next) {
             else {
                 // Session is set in db
                 var Name = results[0].name;
-                res.render('writepost', {
+                res.render('createpuzzle', {
                     pageTitle: 'USN | Write Post',
                     name: Name,
                     goBack: '1',

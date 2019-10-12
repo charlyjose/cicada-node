@@ -1,7 +1,7 @@
-var express = require('express');   //rqd
-var router = express.Router();      //rqd
-var db = require('../connectDB');   //rqd
-var transporter = require('../mailService');    //rqd
+var express = require('express');
+var router = express.Router();
+var db = require('../connectDB');
+var transporter = require('../mailService');
 
 
 router.get('/', function (req, res, next) {
@@ -171,7 +171,7 @@ router.get('/', function (req, res, next) {
                 */
 
 
-               res.render('profile', {
+               res.render('dashboard', {
                 pageTitle: 'USN | Home',
                 name: "Name",
                 goBack: '0',

@@ -6,7 +6,7 @@ var db = require('../connectDB');   //rqd
 router.get('/', function (req, res, next) {
     if (req.session.email) {
         // get information from database for the logged in user
-        res.redirect('/profile'); //feeds actually
+        res.redirect('/dashboard');
     }
     else {
         res.render('sign-in');
@@ -73,7 +73,7 @@ router.post('/', function (req, res, next) {
                     req.session.email = req.body.email;
                     req.session.password = req.body.password;
                     session = req.session.email;
-                    res.redirect('/profile'); //feeds actually
+                    res.redirect('/dashboard');
                 }
                 else {
                     // Password is wrong
