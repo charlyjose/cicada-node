@@ -174,7 +174,6 @@ router.get('/', function (req, res, next) {
                res.render('profile', {
                 pageTitle: 'USN | Home',
                 name: "Name",
-                avatar: 'usn_avatar_images/' + "avatar",
                 goBack: '0',
 
                 level: '9',
