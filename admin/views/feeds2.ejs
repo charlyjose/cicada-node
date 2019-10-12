@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- HEADER -->
+<%- include('header'); -%>
+<!-- HEADER -->
+
+
+
+
+
+
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+
+		<div class="container">
+			<div class="navbar-brand">
+				<img src="images/usnlogo.jpeg" width="15%" height="15%">
+
+				<span>University Social Network</span>
+			</div>
+
+
+		</div>
+	</nav>
+
+
+
+
+
+	<div class="header">
+		<div class="container">
+			<div class="media text-white">
+				<!-- IMAGE TO COME -->
+				<img src=<%= avatar %> class="avatar img-fluid rounded-circle mr-3" alt=" " />
+				<!-- IMAGE TO COME -->
+
+				<div class="media-body">
+					<h3 class="mb-1 text-white font-weight-normal"><%= name %></h3>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<main class="content">
+		<div class="container">
+			<div class="row">
+
+
+
+
+
+				<!-----------------------------------SIDEBAR----------------------------------->
+
+				<div class="col-12 col-md-4 col-lg-3 col-xl-2">
+					<a class="card d-block d-md-none mt-4" data-toggle="collapse" data-target="#sidebar">
+						<div class="card-header">
+							<h5 class="card-title mb-0">Menu</h5>
+						</div>
+					</a>
+
+					<nav id="sidebar" class="collapse collapse-disabled-md sidebar sidebar-sticky">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">Main Navigation</h5>
+							</div>
+							<div class="sidebar-content">
+								<a href="/feeds" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-stream"></i> <span
+										class="align-middle">Feeds</span>
+								</a>
+								<a href="/profile" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-user-circle"></i> <span
+										class="align-middle">Profile</span>
+								</a>
+								<a href="/logout" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span
+										class="align-middle">Logout</span>
+								</a>
+							</div>
+						</div>
+
+
+
+
+						<!-- onmouseover="this.style.backgroundColor ='#5c59ed'; this.style.color='#fff';" onmouseout="this.style.backgroundColor ='#fff'; this.style.color='#495057'" -->
+
+
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">General</h5>
+							</div>
+							<div class="sidebar-content">
+								<a class="sidebar-item" href="#settings" data-toggle="collapse">
+									<i class="align-middle mr-1 fas fa-fw fa-cog"></i> <span
+										class="align-middle">Settings</span>
+								</a>
+								<div class="sidebar-dropdown collapse" id="settings" data-parent="#sidebar">
+									<a class="sidebar-item" href="/reset-username"><i
+											class="align-middle mr-1 fas fa-fw fa-user"></i>Username</a>
+									<a class="sidebar-item" href="/reset-password"><i
+											class="align-middle mr-1 fas fa-fw fa-key"></i>Password</a>
+									<a class="sidebar-item" href="/reset-contacts"><i
+											class="align-middle mr-1 fas fa-fw fa-address-card"></i>Contact</a>
+									<a class="sidebar-item" href="/delete-account"><i
+											class="align-middle mr-1 fas fa-fw fa-user-slash"></i>Delete Account</a>
+								</div>
+							</div>
+							<div class="sidebar-content">
+								<a class="sidebar-item" href="#create" data-toggle="collapse">
+									<i class="align-middle mr-1 fas fa-fw fa-lightbulb"></i> <span
+										class="align-middle">Create</span>
+								</a>
+								<div class="sidebar-dropdown collapse" id="create" data-parent="#sidebar">
+									<a class="sidebar-item" href="/writepost"><i
+											class="align-middle mr-1 fas fa-fw fa-plus"></i>Post</a>
+									<a class="sidebar-item" href="/writestatus"><i
+											class="align-middle mr-1 fas fa-fw fa-signal"></i>Status</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">Extras</h5>
+							</div>
+							<div class="sidebar-content">
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fab fa-fw fa-connectdevelop"></i> <span
+										class="align-middle">Connect</span>
+								</a>
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-university"></i> <span
+										class="align-middle">University
+										Updates</span>
+								</a>
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-school"></i> <span
+										class="align-middle">College
+										Updates</span>
+								</a>
+							</div>
+						</div>
+
+
+						<a href="/profile" style="text-decoration:none; color: white;">
+							<div class="card-header btn"
+								style="background-color:#41d492; color: white; text-align: left;"
+								onmouseover="this.style.backgroundColor ='#5c59ed'"
+								onmouseout="this.style.backgroundColor ='#41d492'">
+
+								<i class="align-middle mr-1 fas fa-fw fa-arrow-left"></i> <span class="align-middle">Go
+									back</span>
+							</div>
+						</a>
+
+
+
+					</nav>
+				</div>
+				<!-----------------------------------SIDEBAR----------------------------------->
+
+
+
+				<!-----------------------------------POST BODY----------------------------------->
+
+				<div class="col-12 col-md-8 col-lg-9 col-xl-10 pl-lg-4">
+
+
+					<%- include('feeds-posts2.ejs'); -%>
+
+
+					<div id="modify"></div>
+
+				</div>
+
+
+				<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+					integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+				<script>
+
+					$(document).ready(function () {
+						var win = $(window);
+
+						// Each time the user scrolls
+						win.scroll(function () {
+							// End of the document reached?
+							if ($(document).height() - win.height() == win.scrollTop()) {
+								//an AJAX request with given parameters
+								$.ajax({
+									type: 'POST',
+									// data: JSON.stringify(data),
+									dataType: 'html',
+									url: 'http://localhost:3000/feeds',
+									//on success, received data is used as 'data' function input
+									success: function (html) {
+										// window.alert('Request sent; data received.');
+										$('#modify').append(html);
+									}
+								});
+							}
+						});
+					});
+
+
+
+				</script>
+
+				<!-----------------------------------POST BODY----------------------------------->
+
+			</div>
+		</div>
+	</main>
+
+
+
+	<!----------------------------------- POSTS BOTTOM ----------------------------------->
+	<footer class="footer">
+
+		<div class="container">
+			<div class="text-muted text-center">
+
+				<p>
+					<a class="postsRefresh" id="postsRefresh" data-toggle="tooltip" title="Want More ❤️" style="color: #6c757d !important" onclick="postRefresher()">That's all for today</a>
+					<script>
+						$(document).ready(function(){
+						  $('[data-toggle="tooltip"]').tooltip();
+						});
+
+
+
+						function postRefresher () {
+							  	//an AJAX request with given parameters
+								$.ajax({
+									type: 'POST',
+									// data: JSON.stringify(data),
+									dataType: 'html',
+									url: 'http://localhost:3000/feeds',
+
+									//on success, received data is used as 'data' function input
+									success: function (html) {
+										// window.alert('Request sent; data received.');
+
+										$('#modify').append(html);
+
+									}
+								});
+						  }
+						</script>
+					<br />
+					<br />
+					<br />
+					<br />
+				</p>
+			</div>
+		</div>
+
+	</footer>
+	<!----------------------------------- POSTS BOTTOM ----------------------------------->
+
+
+
+
+	<%- include('footer'); -%>
+
+
+</body>
+
+</html>

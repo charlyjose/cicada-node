@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+<!-- HEADER -->
+<%- include('header'); -%>
+<!-- HEADER -->
+
+
+
+
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+
+		<div class="container">
+			<div class="navbar-brand">
+				<img src="images/usnlogo.jpeg" width="15%" height="15%">
+
+				<span>University Social Network</span>
+			</div>
+
+
+		</div>
+	</nav>
+
+
+
+
+
+	<div class="header">
+		<div class="container">
+			<div class="media text-white">
+				<!-- IMAGE TO COME -->
+				<img src="images/charly.jpg" class="avatar img-fluid rounded-circle mr-3" alt="Charly Jose" />
+				<!-- IMAGE TO COME -->
+				
+				<div class="media-body">
+						<h3 class="mb-1 text-white font-weight-normal"><%= name %></h3>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<main class="content">
+		<div class="container">
+			<div class="row">
+
+
+
+
+
+				<!-----------------------------------SIDEBAR----------------------------------->
+
+				<div class="col-12 col-md-4 col-lg-3 col-xl-2">
+					<a class="card d-block d-md-none mt-4" data-toggle="collapse" data-target="#sidebar">
+						<div class="card-header">
+							<h5 class="card-title mb-0">Menu</h5>
+						</div>
+					</a>
+
+					<nav id="sidebar" class="collapse collapse-disabled-md sidebar sidebar-sticky">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">Main Navigation</h5>
+							</div>
+							<div class="sidebar-content">
+								<a href="/feeds" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-stream"></i> <span
+										class="align-middle">Feeds</span>
+								</a>
+								<a href="/profile" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-user-circle"></i> <span
+										class="align-middle">Profile</span>
+								</a>
+								<a href="/logout" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span
+										class="align-middle">Logout</span>
+								</a>
+							</div>
+						</div>
+
+
+
+
+						<!-- onmouseover="this.style.backgroundColor ='#5c59ed'; this.style.color='#fff';" onmouseout="this.style.backgroundColor ='#fff'; this.style.color='#495057'" -->
+
+
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">General</h5>
+							</div>
+							<div class="sidebar-content">
+								<a class="sidebar-item" href="#settings" data-toggle="collapse">
+									<i class="align-middle mr-1 fas fa-fw fa-cog"></i> <span
+										class="align-middle">Settings</span>
+								</a>
+								<div class="sidebar-dropdown collapse" id="settings" data-parent="#sidebar">
+									<a class="sidebar-item" href="/reset-username"><i
+											class="align-middle mr-1 fas fa-fw fa-user"></i>Username</a>
+									<a class="sidebar-item" href="/reset-password"><i
+											class="align-middle mr-1 fas fa-fw fa-key"></i>Password</a>
+									<a class="sidebar-item" href="/reset-contacts"><i
+											class="align-middle mr-1 fas fa-fw fa-address-card"></i>Contact</a>
+									<a class="sidebar-item" href="/delete-account"><i
+											class="align-middle mr-1 fas fa-fw fa-user-slash"></i>Delete Account</a>
+								</div>
+							</div>
+							<div class="sidebar-content">
+								<a class="sidebar-item" href="#create" data-toggle="collapse">
+									<i class="align-middle mr-1 fas fa-fw fa-lightbulb"></i> <span
+										class="align-middle">Create</span>
+								</a>
+								<div class="sidebar-dropdown collapse" id="create" data-parent="#sidebar">
+									<a class="sidebar-item" href="/writepost"><i
+											class="align-middle mr-1 fas fa-fw fa-plus"></i>Post</a>
+									<a class="sidebar-item" href="/writestatus"><i
+											class="align-middle mr-1 fas fa-fw fa-signal"></i>Status</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">Extras</h5>
+							</div>
+							<div class="sidebar-content">
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fab fa-fw fa-connectdevelop"></i> <span
+										class="align-middle">Connect</span>
+								</a>
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-university"></i> <span
+										class="align-middle">University
+										Updates</span>
+								</a>
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-school"></i> <span
+										class="align-middle">College
+										Updates</span>
+								</a>
+							</div>
+						</div>
+
+
+						<a href="/profile" style="text-decoration:none; color: white;">
+							<div class="card-header btn"
+								style="background-color:#41d492; color: white; text-align: left;"
+								onmouseover="this.style.backgroundColor ='#5c59ed'"
+								onmouseout="this.style.backgroundColor ='#41d492'">
+
+								<i class="align-middle mr-1 fas fa-fw fa-arrow-left"></i> <span class="align-middle">Go
+									back</span>
+							</div>
+						</a>
+
+
+
+					</nav>
+				</div>
+				<!-----------------------------------SIDEBAR----------------------------------->
+
+
+
+
+
+
+
+				<!-----------------------------------WRITE POST----------------------------------->
+
+				<div class="col-12 col-md-8 col-lg-9 col-xl-10 pl-lg-4">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Create a Post</h5>
+								</div>
+								<div class="card-body">
+									<form id="validation-form" action="/writepost" method="POST" enctype="multipart/form-data">
+
+										
+										<!----POST HEAD---->
+										<div class="form-group">
+											<label class="form-label">Title</label>
+											<textarea rows="1" maxlength="80" class="form-control" name="postTitle"
+												placeholder="Post Title" required></textarea>
+										</div>
+
+										<!----POST BODY---->
+										<div class="form-group">
+											<label class="form-label">Content</label>
+											<textarea rows="10" maxlength="1000" class="form-control" name="postBody"
+												placeholder="Write something here..." required></textarea>
+										</div>
+
+										<!----POST IMAGE---->
+										<div class="form-group">
+											<label class="form-label">Add Photo</label>
+											<div>
+												<input type="file" class="validation-file" name="postImage">
+											</div>
+										</div>
+
+										<button type="submit" class="btn btn-primary">Post</button>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<script>
+						document.addEventListener("DOMContentLoaded", function (event) {
+							// Initialize Select2 select box
+							$('select[name="validation-select2"]').select2({
+								allowClear: true,
+								placeholder: 'Select gear...',
+							}).change(function () {
+								$(this).valid();
+							});
+							// Initialize Select2 multiselect box
+							$('select[name="validation-select2-multi"]').select2({
+								placeholder: 'Select gear...',
+							}).change(function () {
+								$(this).valid();
+							});
+							// Trigger validation on tagsinput change
+							$('input[name="validation-bs-tagsinput"]').on('itemAdded itemRemoved', function () {
+								$(this).valid();
+							});
+							// Initialize validation
+							$('#validation-form').validate({
+								ignore: '.ignore, .select2-input',
+								focusInvalid: false,
+								rules: {
+									'validation-email': {
+										required: true,
+										email: true
+									},
+									'validation-password': {
+										required: true,
+										minlength: 6,
+										maxlength: 20
+									},
+									'validation-password-confirmation': {
+										required: true,
+										minlength: 6,
+										equalTo: 'input[name="validation-password"]'
+									},
+									'validation-required': {
+										required: true
+									},
+									'validation-url': {
+										required: true,
+										url: true
+									},
+									'validation-select': {
+										required: true
+									},
+									'validation-multiselect': {
+										required: true,
+										minlength: 2
+									},
+									'validation-select2': {
+										required: true
+									},
+									'validation-select2-multi': {
+										required: true,
+										minlength: 2
+									},
+									'validation-text': {
+										required: true
+									},
+									'validation-file': {
+										required: true
+									},
+									'validation-radios': {
+										required: true
+									},
+									'validation-radios-custom': {
+										required: true
+									},
+									'validation-checkbox': {
+										required: true
+									},
+									'validation-checkbox-custom': {
+										required: true
+									},
+									'validation-checkbox-group-1': {
+										require_from_group: [1, 'input[name="validation-checkbox-group-1"], input[name="validation-checkbox-group-2"]']
+									},
+									'validation-checkbox-group-2': {
+										require_from_group: [1, 'input[name="validation-checkbox-group-1"], input[name="validation-checkbox-group-2"]']
+									},
+									'validation-checkbox-custom-group-1': {
+										require_from_group: [1, 'input[name="validation-checkbox-custom-group-1"], input[name="validation-checkbox-custom-group-2"]']
+									},
+									'validation-checkbox-custom-group-2': {
+										require_from_group: [1, 'input[name="validation-checkbox-custom-group-1"], input[name="validation-checkbox-custom-group-2"]']
+									}
+								},
+								// Errors
+								errorPlacement: function errorPlacement(error, element) {
+									var $parent = $(element).parents('.form-group');
+									// Do not duplicate errors
+									if ($parent.find('.jquery-validation-error').length) {
+										return;
+									}
+									$parent.append(
+										error.addClass('jquery-validation-error small form-text invalid-feedback')
+									);
+								},
+								highlight: function (element) {
+									var $el = $(element);
+									var $parent = $el.parents('.form-group');
+									$el.addClass('is-invalid');
+									// Select2 and Tagsinput
+									if ($el.hasClass('select2-hidden-accessible') || $el.attr('data-role') === 'tagsinput') {
+										$el.parent().addClass('is-invalid');
+									}
+								},
+								unhighlight: function (element) {
+									$(element).parents('.form-group').find('.is-invalid').removeClass('is-invalid');
+								}
+							});
+						});
+					</script>
+
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+
+
+
+
+	<%- include('footer'); -%>
+
+
+
+</body>
+
+</html>

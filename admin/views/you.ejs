@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
+	<meta name="author" content="Bootlab">
+	<link rel="icon" href="favicon.ico">
+
+	<title>USN | You</title>
+	<link href="css/app.css" rel="stylesheet">
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+	<link href="css/slider.css" rel="stylesheet">
+	<script src="js/bootstrap-slider.js"></script>
+	<script src="js/jquery-cropper.js"></script>
+
+</head>
+
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+
+		<div class="container">
+			<div class="navbar-brand">
+				<img src="images/usnlogo.jpeg" width="15%" height="15%">
+
+				<span>University Social Network</span>
+			</div>
+
+
+		</div>
+	</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!----------------------------------------------HEAD---------------------------------------------->
+
+	<div class="header">
+		<div class="container">
+			<div class="media text-white">
+				<div class="media-body">
+					<h3 class="mb-1 text-white font-weight-normal">Hi <%= name %>,</h3>
+					<span class=" font-weight-normal">Complete your profile and let the world know about you</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!----------------------------------------------HEAD---------------------------------------------->
+
+
+
+
+
+
+
+	<main class="content">
+		<div class="container">
+			<div class="row">
+
+
+
+
+
+
+				<!----------------------------------------------SIDEBAR---------------------------------------------->
+
+				<div class="col-12 col-md-4 col-lg-3 col-xl-2">
+					<a class="card d-block d-md-none mt-4" data-toggle="collapse" data-target="#sidebar">
+						<div class="card-header">
+							<h5 class="card-title mb-0">Menu</h5>
+						</div>
+					</a>
+
+					<nav id="sidebar" class="collapse collapse-disabled-md sidebar sidebar-sticky">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title mb-0">Main Navigation</h5>
+							</div>
+							<div class="sidebar-content">
+
+								<a href="/profile?skip=1" class="sidebar-item"
+									style="background-color:#41d492; color:white;"
+									onmouseover="this.style.backgroundColor ='#5c59ed'"
+									onmouseout="this.style.backgroundColor ='#41d492'">
+									<i class="align-middle mr-1 fas fa-fw fa-forward"></i> <span
+										class="align-middle">Skip for now</span>
+								</a>
+
+
+
+
+
+
+								<a href="/logout" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span
+										class="align-middle">Logout</span>
+								</a>
+							</div>
+						</div>
+
+
+
+
+					</nav>
+				</div>
+
+				<!----------------------------------------------SIDEBAR---------------------------------------------->
+
+
+
+
+
+
+
+				<div class="col-12 col-md-8 col-lg-9 col-xl-10 pl-lg-4">
+
+					<div class="row">
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+						<!------------------------------AVATAR------------------------------>
+						<div class="col-12 col-xl-6">
+							<div class="card">
+
+								<div class="card-header">
+									<h5 class="card-title">Profile Photo</h5>
+									<h6 class="card-subtitle text-muted">Add your profile photo for people to recognize
+										you</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='profilePhotoToggle'
+											value='0' checked>
+										<span class="custom-control-label" id="profilePhotoToggleText">This info is now
+											Public</span>
+									</label>
+
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#profilePhotoToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#profilePhotoToggleText").text("This info is now Public");
+													$("#profilePhotoToggle").val('0');
+												} else {
+													// Change the Text
+													$("#profilePhotoToggleText").text("This info is now Private");
+													$("#profilePhotoToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+
+
+								</div>
+
+								<div class="card-body">
+									<div class="form-group">
+										<input type="file" class="validation-file" name="profilePhoto">
+										<br />
+										<br />
+										<br />
+										<br />
+
+
+										
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!------------------------------AVATAR------------------------------>
+
+
+
+
+
+						<!------------------------------SUMMARY------------------------------>
+						<div class="col-12 col-xl-6">
+							<div class="card">
+
+								<div class="card-header">
+									<h5 class="card-title">Summary</h5>
+									<h6 class="card-subtitle text-muted">Frame your words to catch others attention</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='summaryToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="summaryToggleText">This info is now
+											Public</span>
+									</label>
+
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#summaryToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#summaryToggleText").text("This info is now Public");
+													$("#summaryToggle").val('0');
+												} else {
+													// Change the Text
+													$("#summaryToggleText").text("This info is now Private");
+													$("#summaryToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+
+
+								</div>
+
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" name='summary' placeholder="Write about you"
+											rows="3" style="height: 84px;"></textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!------------------------------SUMMARY------------------------------>
+
+
+
+
+
+
+
+
+
+
+
+
+						<!------------------------------ADDRESS------------------------------>
+
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Contacts</h5>
+									<h6 class="card-subtitle text-muted">Add your immediate contacts</h6>
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='contactToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="contactToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#contactToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#contactToggleText").text("This info is now Public");
+													$("#contactToggle").val('0');
+												} else {
+													// Change the Text
+													$("#contactToggleText").text("This info is now Private");
+													$("#contactToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+								</div>
+								<div class="card-body">
+
+									<h5 class="card-title">Offline Contacts</h5>
+
+
+									<div class="form-group">
+										<label for="inputAddress">Address Line 1</label>
+										<input type="text" class="form-control" id="addressline1" name="addressline1"
+											placeholder="1234 Main St">
+									</div>
+
+									<div class="form-group">
+										<label for="inputAddress2">Address Line 2</label>
+										<input type="text" class="form-control" id="addressline2" name="addressline2"
+											placeholder="Apartment, studio, or floor">
+									</div>
+
+									<div class="form-row">
+
+										<script type="text/javascript" src="js/countries.js"></script>
+
+										<div class="form-group col-md-4">
+											<label for="inputState">Country</label>
+											<select class="form-control select2" data-toggle="select2" name="country"
+												id="country"></select>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputState">State</label>
+											<select class="form-control select2" data-toggle="select2" name="state"
+												id="state"></select>
+										</div>
+
+										<script language="javascript">
+											populateCountries("country", "state");
+										</script>
+
+
+										<div class="form-group col-md-5">
+											<label for="city">City</label>
+											<input type="text" class="form-control" id="city" class="city"
+												placeholder="City">
+										</div>
+
+										<div class="form-group col-md-2">
+											<label for="zip">Zip</label>
+											<input type="text" class="form-control" id="zip" class="zip"
+												placeholder="Zip Code">
+										</div>
+
+									</div>
+
+									<hr>
+
+									<h5 class="card-title">Online Contacts</h5>
+
+									<div class="form-row">
+
+										<div class="form-group col-md-6">
+											<label for="email">Your secondary email</label>
+											<input type="email" class="form-control" id="email2" name="email2"
+												placeholder="Email">
+										</div>
+
+										<div class="form-group col-md-6">
+											<label for="url">Your Portfolio URL</label>
+											<input type="url" class="form-control" id="url" name="url"
+												placeholder="URL">
+										</div>
+
+
+										<form class="form-inline">
+
+											&nbsp;&nbsp;
+											<div class="input-group mb-2 mr-sm-5">
+												<div class="input-group-prepend">
+													<span class="input-group-text">@</span>
+												</div>
+												<input type="text" class="form-control" id="linkedInID"
+													name="linkedInID" placeholder="LinkedIn ID">
+											</div>
+
+											<div class="input-group mb-2 mr-sm-5">
+												<div class="input-group-prepend">
+													<span class="input-group-text">@</span>
+												</div>
+												<input type="text" class="form-control" id="twitterID" name="twitterID"
+													placeholder="Twitter ID">
+											</div>
+
+											<div class="input-group mb-2 mr-sm-5">
+												<div class="input-group-prepend">
+													<div class="input-group-text">@</div>
+												</div>
+												<input type="text" class="form-control" id="facebookID"
+													name="facebookID" placeholder="Facebook ID">
+											</div>
+
+
+
+										</form>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------ADDRESS------------------------------>
+
+
+
+
+
+
+
+						<!------------------------------EDUCATION------------------------------>
+
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Education</h5>
+									<h6 class="card-subtitle text-muted">Add your School, degree and duration</h6>
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='eduToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="eduToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#eduToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#eduToggleText").text("This info is now Public");
+													$("#eduToggle").val('0');
+												} else {
+													// Change the Text
+													$("#eduToggleText").text("This info is now Private");
+													$("#eduToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+
+
+								</div>
+
+
+								<div class="card-body">
+									<div id="dynamicSchool">
+										<div class='school'>
+											<h5 class='card-title'>School 1</h5>
+											<div class="row">
+												<div class="form-group col-md-4">
+													<label for="inputAddress">Institution</label>
+													<input type="text" class="form-control" id="institute1"
+														name="institute1" placeholder="Institution Name">
+												</div>
+												<div class="form-group col-md-4">
+													<label for="inputAddress">Degree</label>
+													<input type="text" class="form-control" id="degree1" name="degree1"
+														placeholder="Degree">
+												</div>
+												<div class="col-12 col-xl-4">
+													<div class="form-group">
+														<label class="form-label">Duration</label>
+														<input class="form-control daterange" type="text" id="duration1"
+															name="duration1" value="03/25/2019 - 04/15/2019"
+															onclick="datePick('duration1')" />
+														<span class="font-13 text-muted">e.g "MM/DD/YYYY -
+															MM/DD/YYYY"</span>
+													</div>
+												</div>
+
+											</div>
+
+											<hr />
+										</div>
+									</div>
+
+
+									<br />
+									<input type="button" class="btn btn-primary" id='addSchool' value="Add More">
+
+
+
+									<script>
+										var scounter = 2;
+										var sselect = 1;
+
+										$(document).ready(function () {
+											$("#addSchool").click(function () {
+												if ((document.getElementById('institute' + sselect).value != '') && (document.getElementById('degree' + sselect).value != '') && (document.getElementById('duration' + sselect).value != '')) {
+
+													var sHTML = "";
+													sHTML += "<h5 class='card-title'>School " + scounter + " </h5>";
+													sHTML += "<div class='row'>";
+													sHTML += "<div class='form-group col-md-4'>";
+													sHTML += "<label for='inputAddress'>Institution</label>";
+													sHTML += "<input type='text' class='form-control' id='institute" + scounter + "' name='institute" + scounter + "' placeholder='Institution Name'>";
+													sHTML += "</div>";
+													sHTML += "<div class='form-group col-md-4'>";
+													sHTML += "<label for='inputAddress'>Degree</label>";
+													sHTML += "<input type='text' class='form-control' id='degree" + scounter + "' name='degree" + scounter + "' placeholder='Degree'>";
+													sHTML += "</div>";
+													sHTML += "<div class='col-12 col-xl-4'>";
+													sHTML += "<div class='form-group'>";
+													sHTML += "<label class='form-label'>Duration</label>";
+													// var test = "onclick=" + "datePick(" + "duration" + counter + ");";
+													sHTML += "<input class='form-control daterange' type='text' id='duration" + scounter + "' name='duration" + scounter + "' value='03/25/2019 - 04/15/2019' >";
+													sHTML += "<span class='font-13 text-muted'>e.g 'MM/DD/YYYY - MM/DD/YYYY'</span>";
+													sHTML += "</div>";
+													sHTML += "</div>";
+													sHTML += "</div>";
+													sHTML += "<hr />";
+													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2')'="">
+
+													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2')'="">
+
+													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration'2')'="">
+
+													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2)'="">
+
+													// var test = "onclick=" + "datePick(" + "\'duration" + counter + "\');";
+													// alert(test);
+
+													scounter++;
+													sselect = scounter - 1;
+
+													$(".school").append(sHTML);
+												}
+												else {
+													alert('Type your Education to add more');
+												}
+											});
+										});
+
+
+										/*
+																				document.addEventListener("DOMContentLoaded", function (event) {
+
+																					$("input[id='daterange']").daterangepicker({
+																						opens: 'left'
+																					});
+																					/*
+																																var i = 1;
+																																for (i = 1; i <= counter; ++i) {
+																																	// Daterangepicker
+																																	$("input[name='duration" + i + "']").daterangepicker({
+																																		opens: 'left'
+																																	});
+																																}
+																																i = 1;
+																					* /
+																				});
+										*/
+									</script>
+
+
+
+
+									<script>
+
+										// function datePick(selected) {
+										// 	$('#'+selected).daterangepicker({
+										// 		opens: 'left'
+										// 	});
+										// }
+									</script>
+
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------EDUCATION------------------------------>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<!------------------------------ACCOMPLISHMENTS------------------------------>
+
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Accomplishments</h5>
+									<h6 class="card-subtitle text-muted">Add your certifications</h6>
+
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='accomToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="accomToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#accomToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#accomToggleText").text("This info is now Public");
+													$("#accomToggle").val('0');
+												} else {
+													// Change the Text
+													$("#accomToggleText").text("This info is now Private");
+													$("#accomToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+								</div>
+
+								<div class="card-body">
+									<div id="dynamicSchool">
+										<div class='certification'>
+											<h5 class='card-title'>Certification 1</h5>
+											<div class="row">
+												<div class="form-group col-md-4">
+													<label for="inputAddress">Course</label>
+													<input type="text" class="form-control" id="course1" name="course1"
+														placeholder="Course Name">
+												</div>
+												<div class="form-group col-md-4">
+													<label for="inputAddress">License</label>
+													<input type="text" class="form-control" id="license1"
+														name="license1" placeholder="License">
+												</div>
+												<div class="col-12 col-xl-4">
+													<div class="form-group">
+														<label class="form-label">Duration</label>
+														<input class="form-control daterange" type="text"
+															id="cduration1" name="cduration1"
+															value="03/25/2019 - 04/15/2019"
+															onclick="datePick('cduration1')" />
+														<span class="font-13 text-muted">e.g "MM/DD/YYYY -
+															MM/DD/YYYY"</span>
+													</div>
+												</div>
+
+											</div>
+
+											<hr />
+										</div>
+									</div>
+
+									<br />
+									<input type="button" class="btn btn-primary" id='addCert' value="Add More">
+
+									<script>
+										var ccounter = 2;
+										var cselect = 1;
+
+										$(document).ready(function () {
+											$("#addCert").click(function () {
+												if ((document.getElementById('course' + cselect).value != '') && (document.getElementById('license' + cselect).value != '') && (document.getElementById('cduration' + cselect).value != '')) {
+
+													var cHTML = "";
+													cHTML += "<h5 class='card-title'>Certification " + ccounter + " </h5>";
+													cHTML += "<div class='row'>";
+													cHTML += "<div class='form-group col-md-4'>";
+													cHTML += "<label for='inputAddress'>Course</label>";
+													cHTML += "<input type='text' class='form-control' id='course" + ccounter + "' name='course" + ccounter + "' placeholder='Course Name'>";
+													cHTML += "</div>";
+													cHTML += "<div class='form-group col-md-4'>";
+													cHTML += "<label for='inputAddress'>License</label>";
+													cHTML += "<input type='text' class='form-control' id='license" + ccounter + "' name='license" + ccounter + "' placeholder='License'>";
+													cHTML += "</div>";
+													cHTML += "<div class='col-12 col-xl-4'>";
+													cHTML += "<div class='form-group'>";
+													cHTML += "<label class='form-label'>Duration</label>";
+													cHTML += "<input class='form-control daterange' type='text' id='cduration" + ccounter + "' name='cduration" + ccounter + "' value='03/25/2019 - 04/15/2019' >";
+													cHTML += "<span class='font-13 text-muted'>e.g 'MM/DD/YYYY - MM/DD/YYYY'</span>";
+													cHTML += "</div>";
+													cHTML += "</div>";
+													cHTML += "</div>";
+													cHTML += "<hr />";
+
+													ccounter++;
+													cselect = ccounter - 1;
+
+													$(".certification").append(cHTML);
+												}
+												else {
+													alert('Type your Cerification to add more');
+												}
+											});
+										});
+
+									</script>
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------ACCOMPLISHMENTS------------------------------>
+
+
+
+
+
+
+						<!------------------------------INTERESTS------------------------------>
+
+						<div class="col-md-7">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Interests</h5>
+									<h6 class="card-subtitle text-muted">Add your interests to find friends</h6>
+
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='interestToggle'
+											value='0' checked>
+										<span class="custom-control-label" id="interestToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#interestToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#interestToggleText").text("This info is now Public");
+													$("#interestToggle").val('0');
+												} else {
+													// Change the Text
+													$("#interestToggleText").text("This info is now Private");
+													$("#interestToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+								</div>
+
+								<div class="card-body">
+									<div id="dynamicSchool">
+										<div class='interestList'>
+											<h5 class='card-title'>Interest 1</h5>
+											<div class="row">
+												<div class="form-group col-md-4">
+													<label for="inputAddress">Interest</label>
+													<input type="text" class="form-control" id="interest1"
+														name="interest1" placeholder="Interest">
+												</div>
+												<div class="form-group col-md-2">
+													<label for="inputAddress">Rating</label>
+													<input type="text" class="form-control" id="rating1" name="rating1"
+														placeholder="Rating">
+												</div>
+
+											</div>
+
+											<hr />
+										</div>
+									</div>
+
+									<br />
+									<input type="button" class="btn btn-primary" id='addInterest'
+										value="Add More Interests">
+
+
+
+									<script>
+										var icounter = 2;
+										var iselect = 1;
+
+										$(document).ready(function () {
+											$("#addInterest").click(function () {
+												if ((document.getElementById('interest' + iselect).value != '') && (document.getElementById('rating' + iselect).value != '')) {
+
+													var iHTML = "";
+													iHTML += "<h5 class='card-title'>Interest " + icounter + " </h5>";
+													iHTML += "<div class='row'>";
+													iHTML += "<div class='form-group col-md-4'>";
+													iHTML += "<label for='inputAddress'>Interest</label>";
+													iHTML += "<input type='text' class='form-control' id='interest" + icounter + "' name='interest" + icounter + "' placeholder='Interest'>";
+													iHTML += "</div>";
+													iHTML += "<div class='form-group col-md-2'>";
+													iHTML += "<label for='inputAddress'>Rating</label>";
+													iHTML += "<input type='text' class='form-control' id='rating" + icounter + "' name='rating" + icounter + "' placeholder='Rating'>";
+													iHTML += "</div>";
+													iHTML += "</div>";
+													iHTML += "<hr />";
+
+													icounter++;
+													iselect = icounter - 1;
+
+													$(".interestList").append(iHTML);
+												}
+												else {
+													alert('Type your Interest to add more');
+												}
+											});
+										});
+
+									</script>
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------INTERESTS------------------------------>
+
+
+
+
+
+						<!------------------------------SKILLS------------------------------>
+						<div class="col-12 col-xl-5">
+							<div class="card">
+
+								<div class="card-header">
+									<h5 class="card-title">Skills</h5>
+									<h6 class="card-subtitle text-muted">Showcase your skills</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='skillsToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="skillsToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#skillsToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#skillsToggleText").text("This info is now Public");
+													$("#skillsToggle").val('0');
+												} else {
+													// Change the Text
+													$("#skillsToggleText").text("This info is now Private");
+													$("#skillsToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+
+
+								</div>
+
+								<div class="card-body">
+									<div class="form-group row">
+										<div class="col-sm-10">
+											<div id="dynamicSkill">
+												<input type="text" id='skill1' class="form-control" value=''
+													name='skill1'>
+											</div>
+											<br />
+											<input type="button" class="btn btn-primary" value="Add More Skills"
+												onClick="addSkill('dynamicSkill');">
+										</div>
+
+									</div>
+
+
+									<script type="text/javascript">
+										var skcounter = 2;
+										var sklimit = 200;
+										var skselect;
+										function addSkill(divName) {
+											if (skcounter == sklimit) {
+												alert("You have reached the limit of adding " + skcounter + " inputs");
+											}
+											else {
+												skselect = skcounter - 1;
+												if (document.getElementById('skill' + skselect).value != '') {
+													var newdiv = document.createElement('div');
+													newdiv.innerHTML = "<br><input type='text' id='skill" + skcounter + "' class='form-control' value='' name='skill" + skcounter + "'>";
+													document.getElementById(divName).appendChild(newdiv);
+
+													// alert(document.getElementById('skill' + select).value);
+													skcounter++;
+												}
+												else {
+													alert('Type your skills to add more');
+												}
+											}
+										}
+									</script>
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------SKILLS------------------------------>
+
+
+
+
+
+
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- <input class="form-control daterange" type="text" id="duration1" name="duration1" value="03/25/2019 - 04/15/2019" onclick="datePick('duration1')">
+
+
+
+					<input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick('duration2')" '="">
+ -->
+
+
+
+
+
+
+
+					<script>
+
+						document.addEventListener("DOMContentLoaded", function (event) {
+							// Select2
+							$('.select2').each(function () {
+								$(this)
+									.wrap('<div class="position-relative"></div>')
+									.select2({
+										placeholder: 'Select State',
+										dropdownParent: $(this).parent()
+									});
+							}); ////;
+
+							/*
+							
+														var i = 1;
+														for (i = 1; i <= counter; ++i) {
+															// Daterangepicker
+															$("input[name='duration" + i + "']").daterangepicker({
+																opens: 'left'
+															});
+														}
+														i = 1;
+							*/
+
+
+							$("input.daterange").daterangepicker({
+								opens: 'left'
+							});
+
+
+							$('input[name="datetimes"]').daterangepicker({
+								timePicker: true,
+								opens: 'left',
+								startDate: moment().startOf('hour'),
+								endDate: moment().startOf('hour').add(32, 'hour'),
+								locale: {
+									format: 'M/DD hh:mm A'
+								}
+							});
+							$('input[name="datesingle"]').daterangepicker({
+								singleDatePicker: true,
+								showDropdowns: true
+							});
+							var start = moment().subtract(29, 'days');
+							var end = moment();
+
+							function cb(start, end) {
+								$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+							}
+							$('#reportrange').daterangepicker({
+								startDate: start,
+								endDate: end,
+								ranges: {
+									'Today': [moment(), moment()],
+									'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+									'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+									'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+									'This Month': [moment().startOf('month'), moment().endOf('month')],
+									'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+								}
+							}, cb);
+							cb(start, end);
+						});
+					</script>
+
+
+
+				</div>
+
+
+
+			</div>
+		</div>
+	</main>
+
+
+
+
+
+
+	<footer class="footer">
+
+
+		<div class="container">
+			<hr />
+			<div class="text-muted text-center">
+				<ul class="list-inline mb-2">
+					<li class="list-inline-item">
+						<a class="text-muted" href="index.html#">Support</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="text-muted" href="index.html#">Privacy</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="text-muted" href="index.html#">Terms of Service</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="text-muted" href="index.html#">Contact</a>
+					</li>
+				</ul>
+				<p>
+					&copy; 2019 - <a href="index.html" class="text-muted">USN</a>
+				</p>
+			</div>
+		</div>
+
+
+	</footer>
+
+
+	<script src="js/app.js"></script>
+
+	<svg width="0" height="0" style="position:absolute">
+		<defs>
+			<symbol viewBox="0 0 512 512" id="ion-ios-pulse-strong">
+				<path
+					d="M448 273.001c-21.27 0-39.296 13.999-45.596 32.999h-38.857l-28.361-85.417a15.999 15.999 0 0 0-15.183-10.956c-.112 0-.224 0-.335.004a15.997 15.997 0 0 0-15.049 11.588l-44.484 155.262-52.353-314.108C206.535 54.893 200.333 48 192 48s-13.693 5.776-15.525 13.135L115.496 306H16v31.999h112c7.348 0 13.75-5.003 15.525-12.134l45.368-182.177 51.324 307.94c1.229 7.377 7.397 11.92 14.864 12.344.308.018.614.028.919.028 7.097 0 13.406-3.701 15.381-10.594l49.744-173.617 15.689 47.252A16.001 16.001 0 0 0 352 337.999h51.108C409.973 355.999 427.477 369 448 369c26.511 0 48-22.492 48-49 0-26.509-21.489-46.999-48-46.999z">
+				</path>
+			</symbol>
+		</defs>
+	</svg>
+
+
+</body>
+
+</html>
