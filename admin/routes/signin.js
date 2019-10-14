@@ -1,11 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var db = require('../connectDB');
-const {signInAuth} = require('../middleware/signInAuth')
-
+const express = require('express');
+const router = express.Router();
+const { signInAuth } = require('../middleware/signInAuth')
 
 router.get('/', function (req, res, next) {
-    res.render('sign-in');
+    if (!req.session.email) {
+        res.render('sign-in');
+    } else {
+        next()
+    }
+});
+
+router.get('/', signInAuth, function (req, res, next) {
+    res.redirect('dashboard');
 });
 
 router.post('/', function (req, res, next) {
