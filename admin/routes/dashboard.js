@@ -171,17 +171,17 @@ router.get('/', function (req, res, next) {
                 */
 
 
-               res.render('dashboard', {
-                pageTitle: 'USN | Home',
-                name: "Name",
-                goBack: '0',
+                res.render('dashboard', {
+                    pageTitle: 'USN | Home',
+                    name: "Name",
+                    goBack: '0',
 
-                level: '9',
-                total: '58',
-                puzzles: '12'
-            });
+                    level: '9',
+                    total: '58',
+                    puzzles: '12'
+                });
 
-            // res.send("<h1>Dashboard is coming soon</h1>")
+                // res.send("<h1>Dashboard is coming soon</h1>")
             }
         });
     }
