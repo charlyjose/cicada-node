@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD AND NAVBAR -->
+<%- include('header'); -%>
+
+<body>
+	<%- include('navbar'); -%>
+
+
+
+	<!-----------------------------------PROFILE----------------------------------->
+
+	<div class="col-12 col-md-8 col-lg-9 col-xl-10 pl-lg-4">
+
+
+		<!------------------------------------------------------------------------------------------------------>
+		<!--ROW3-->
+		<div class="row">
+			<div class="col-12 col-lg-12 col-xxl-9 d-flex">
+				<div class="card flex-fill">
+					<div class="card-header">
+						<h5 class="card-title mb-0">Leaderboard</h5>
+					</div>
+					<table id="datatables-dashboard" class="table table-striped my-0">
+						<thead>
+							<tr>
+								<th class="d-none d-xl-table-cell">Name</th>
+								<th class="d-none d-xl-table-cell">Level</th>
+								<th class="d-none d-xl-table-cell">Puzzles Solved</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Samuel Jackson</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Ali Shane</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Hamud Halder</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+			
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">John Doe</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Rahul Cris</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Smith Spaghetti</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Donald Tupperware</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">Lenon York</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="d-none d-xl-table-cell">West Ben</span></td>
+								<td><span class="d-none d-xl-table-cell">5</span></td>
+								<td><span class="d-none d-xl-table-cell">20</span></td>
+								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<script>
+					document.addEventListener("DOMContentLoaded", function (event) {
+						$('#datatables-dashboard').DataTable({
+							pageLength: 6,
+							lengthChange: false,
+							bFilter: false,
+							autoWidth: false
+						});
+					});
+				</script>
+			</div>
+
+		</div>
+		<!------------------------------------------------------------------------------------------------------>
+		<!--ROW3END-->
+
+
+
+
+
+
+
+
+
+
+	</div>
+	</div>
+	</div>
+	</main>
+
+
+
+	<%- include('footer'); -%>
+
+
+</body>
+
+</html>

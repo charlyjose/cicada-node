@@ -37,6 +37,7 @@ var logoutRouter = require('./routes/logout');
 var forgotPasswordRouter = require('./routes/forgotPassword');
 var resetPasswordRouter = require('./routes/resetPassword');
 var dashboardRouter = require('./routes/dashboard');
+var viewPuzzleRouter = require('./routes/viewPuzzle');
 var youRouter = require('./routes/you');
 var feedsRouter = require('./routes/feeds');
 var createPuzzleRouter = require('./routes/createPuzzle');
@@ -70,8 +71,11 @@ app.use('/home', homeRouter);
 // User Profile
 app.use('/dashboard', dashboardRouter);
 
-// Write Post
+// Add Puzzle
 app.use('/createpuzzle', createPuzzleRouter);
+
+// View Puzzle
+app.use('/viewpuzzle', viewPuzzleRouter);
 
 // Complete basic profile
 app.use('/you', youRouter);
