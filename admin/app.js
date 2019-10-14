@@ -64,6 +64,15 @@ app.use(function(req, res, next) {
 
 // Routers
 
+app.use((req, res, next) => {
+  if(req.session.error) {
+    console.log("\n\n " + req.session.error  + "\n\n")
+    res.locals.error = req.session.error;
+    delete req.session.error;
+  }
+  next()
+});
+
 // Home Page
 app.use('/', homeRouter);
 app.use('/home', homeRouter);

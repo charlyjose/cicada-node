@@ -1,20 +1,11 @@
-var express = require('express');   //rqd
-var router = express.Router();      //rqd
-var db = require('../connectDB');   //rqd
+var express = require('express');
+var router = express.Router();
+var db = require('../connectDB');
+const {signInAuth} = require('../middleware/signInAuth')
 
 
 router.get('/', function (req, res, next) {
-    if (req.session.email) {
-        // get information from database for the logged in user
-        res.redirect('/dashboard');
-    }
-    else {
-        res.render('sign-in');
-    }
-});
-
-router.get('/favicon.ico', function (req, res, next) {
-    res.sendFile('/images/favicon.ico');
+    res.render('sign-in');
 });
 
 router.post('/', function (req, res, next) {
@@ -92,5 +83,8 @@ router.post('/', function (req, res, next) {
     }
 });
 
+router.get('/favicon.ico', function (req, res, next) {
+    res.sendFile('/images/favicon.ico');
+});
 
 module.exports = router;

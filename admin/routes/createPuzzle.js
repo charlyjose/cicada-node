@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var db = require('../connectDB');
-var path = require('path');
-var multer = require('multer');
-var randomstring = require('randomstring');
-var cryptoRandomString = require('crypto-random-string');
-var transporter = require('../mailService');
-
+const express = require('express');
+const router = express.Router();
+const db = require('../connectDB');
+const path = require('path');
+const multer = require('multer');
+const randomstring = require('randomstring');
+const cryptoRandomString = require('crypto-random-string');
+const transporter = require('../mailService');
+const { signInAuth } = require('../middleware/signInAuth')
 
 // Posts image store directory
 var DIR = path.join(__dirname, '../views/usn_posts_images');
@@ -38,53 +38,13 @@ var uploading = multer({ storage: storage }).single('postImage');
 
 
 
-router.get('/', function (req, res, next) {
-
-    // Check if signed in
-    if (req.session.email) {
-
-        var sql = 'select name from user where email like ?';
-        var values = [
-            [req.session.email]
-        ];
-
-        db.query(sql, [values], function (err, results, fields) {
-            if (err) {
-                // DB ERROR
-                console.log('\n\nDB ERROR: ' + err);
-
-                res.render('messageBoard', {
-                    title: 'USN | Error',
-                    heading: 'Ouch!',
-                    subtitle: 'Something went wrong on our side ?',
-                    body: 'Our engineers are looking into it, if you see them tell them code give below.',
-                    diagnose: '',
-                    comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
-                    returnLink: 'logout'
-                });
-            }
-            else if (results.length == 0) {
-                // Session deleted from db
-                res.redirect('/signin');
-            }
-            else {
-                // Session is set in db
-                var Name = results[0].name;
-                res.render('createpuzzle', {
-                    pageTitle: 'USN | Write Post',
-                    name: Name,
-                    goBack: '1',
-                });
-            }
-        });
-    }
-    else {
-        // Not signed in
-        res.redirect('/signin');
-    }
+router.get('/', signInAuth, function (req, res, next) {
+    res.render('createpuzzle', {
+        pageTitle: 'USN | Home',
+        name: res.locals.Name,
+        goBack: '0'
+    });
 });
-
-
 
 
 router.post('/', function (req, res, next) {
@@ -177,7 +137,7 @@ router.post('/', function (req, res, next) {
                         });
 
                         post_link = post_link + cryptoRandomString(20);
-                        
+
 
                         // Save post to db
                         var sql = 'insert into posts(post_link, likes, views, shares, edit, content) values ?';
@@ -203,25 +163,25 @@ router.post('/', function (req, res, next) {
                             else {
                                 // Post added successfully
 
-                                    var email = req.session.email;
-                                
-                                        // MAIL SERVICE
-                                        var html = "<body><center><h1>Thank you for using our service</h1><h2></h2></center><p>Greetings from USN. Your new post is live at this <a href='https://usn.in/feeds/posts/" + post_link  + "' style='text-decoration: none;'>link</a></p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/content' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>You received this email because you have <a href='https://usn-help.com/content' style='color: black'>subscribed</a> to our email assistance service.</p><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
+                                var email = req.session.email;
 
-                                        var mailOptions = {
-                                            from: 'usnrobot@gmail.com',
-                                            to: email,
-                                            subject: 'Your new post is live',
-                                            html: html
-                                        };
+                                // MAIL SERVICE
+                                var html = "<body><center><h1>Thank you for using our service</h1><h2></h2></center><p>Greetings from USN. Your new post is live at this <a href='https://usn.in/feeds/posts/" + post_link + "' style='text-decoration: none;'>link</a></p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/content' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>You received this email because you have <a href='https://usn-help.com/content' style='color: black'>subscribed</a> to our email assistance service.</p><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
 
-                                        transporter.sendMail(mailOptions, function (error, info) {
-                                            if (error) {
-                                                console.log(error);
-                                            } else {
-                                                console.log('\nEmail sent: ' + info.response + '\n');
-                                            }
-                                        });
+                                var mailOptions = {
+                                    from: 'usnrobot@gmail.com',
+                                    to: email,
+                                    subject: 'Your new post is live',
+                                    html: html
+                                };
+
+                                transporter.sendMail(mailOptions, function (error, info) {
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log('\nEmail sent: ' + info.response + '\n');
+                                    }
+                                });
 
 
 

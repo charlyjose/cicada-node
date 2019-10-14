@@ -10,7 +10,6 @@ module.exports = {
 
             db.query(sql, [values], function (err, results, fields) {
                 if (err) {
-                    // DB ERROR
                     console.log('\n\nDB ERROR: ' + err);
 
                     res.render('messageBoard', {
@@ -25,21 +24,20 @@ module.exports = {
                 }
                 else if (results.length == 0) {
                     // Session deleted from db
-                    // req.session.error = 'Invalid'
-                    return res.redirect('/signin');
+                    req.session.error = 'Invalid Login Attempt'
+                    return res.redirect('sign-in');
                 }
                 else {
                     res.locals.Name = results[0].name
                     res.locals.collegeID = results[0].collegeID
-                    // Verified
                     next()
                 }
             });
         }
         else {
             // Not signed in
-            // req.session.error = 'Invalid'
-            return res.redirect('/signin');
+            req.session.error = 'Invalid Login Attempt'
+            return res.redirect('sign-in');
         }
     }
 }

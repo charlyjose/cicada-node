@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../connectDB');
 const transporter = require('../mailService');
 const { signInAuth } = require('../middleware/signInAuth')
 
@@ -11,7 +10,6 @@ router.get('/', signInAuth, function (req, res, next) {
         goBack: '0'
     });
 });
-
 
 router.get('/favicon.ico', function (req, res, next) {
     res.sendFile('/images/favicon.ico');
