@@ -3,6 +3,8 @@ const router = express.Router();
 const { signInAuth } = require('../middleware/signInAuth')
 
 router.get('/', signInAuth, function (req, res, next) {
+    console.log("\n\n")
+
     res.render('dashboard', {
         pageTitle: 'USN | Home',
         name: "Name",

@@ -3,7 +3,7 @@ const db = require('../connectDB');
 module.exports = {
     signInAuth(req, res, next) {
         // Session ID set
-        if (req.session) {
+        if (req.session.email) {
             var sql = 'select name, collegeID from user where email like ?';
             var values = [
                 [req.session.email]
@@ -36,7 +36,7 @@ module.exports = {
             });
         }
         // Session ID not set
-        else if (!req.session) {
+        else if (!req.session.email) {
             req.session.error = 'Invalid Login Attempt 1'
             return res.redirect('signin');
         }

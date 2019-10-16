@@ -3,7 +3,8 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    delete req.sessionID
+    req.session.email = null
+    delete req.session.email
     req.session.destroy(function(err) {
         if(err) {
             // res.negotiate(err);
@@ -21,7 +22,6 @@ router.get('/', function(req, res, next) {
 
         }
         else {
-           
             res.redirect('/');
         }
     });

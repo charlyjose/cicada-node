@@ -1,82 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const session = require('express-session')
+// const session = require('express-session')
 const db = require('../connectDB');
 const { signInAuth } = require('../middleware/signInAuth')
 
 
-
-// var expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-// // app.use(session({
-// //   name: 'session',
-// //   keys: ['key1', 'key2'],
-// //   cookie: {
-// //     secure: true,
-// //     httpOnly: true,
-// //     domain: 'example.com',
-// //     path: 'foo/bar',
-// //     expires: expiryDate
-// //   }
-// // }))
-
-
-
-// const uuid = require('uuid/v4')
-// // // add & configure middleware
-// // router.use(session({
-// //     genid: (req) => {
-// //         console.log('Inside the session middleware')
-// //         console.log(req.sessionID)
-// //         return uuid() // use UUIDs for session IDs
-// //     },
-// //     secret: 'keyboard cat',
-// //     resave: false,
-// //     saveUninitialized: true,
-// //     expires: expiryDate
-// // }))
-
-// // router.use(session({
-// //     genid: function(req) {
-// //         console.log('\n\nInside the session middleware  ')
-// //         console.log(req.sessionID + "\n\n")
-// //       return uuid() // use UUIDs for session IDs
-// //     },
-// //     secret: 'keyboard cat',
-// //     resave: false,
-// //     saveUninitialized: true
-// //   }))
-
-
-
-
-// var bodyParser=require('body-parser');
-// var cookieParser = require('cookie-parser')
-// var csrf = require('csurf');
-
-
-// var secureConnectSidCookieOption = {maxAge:3600000};
-
-// router.use(session({ secret: 'your secret here', saveUninitialized: true, resave: true,  rolling:true, cookie:secureConnectSidCookieOption }));
-
-// router.use(csrf({saltLength:16,secretLength:32}));
-
-// router.use(function(req,res,next){
-
-//     app.locals.token=req.csrfToken();
-//     var secureCookieOptions = {};
-//     res.cookie("csrfToken",app.locals.token, secureCookieOptions);
-
-//     console.log('\n\nHELLO\n\n')
-//     next();
-// })
-
-
-
-
-
 router.get('/', function (req, res, next) {
+    console.log("\n\n")
+
     if (!req.session.email) {
-        res.render('sign-in');
+        res.render('signin');
+        res.end;
     } else {
         next()
     }
@@ -87,6 +21,7 @@ router.get('/', signInAuth, function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+    console.log("\n\n")
 
     if (!req.body.email || !req.body.password) {
         res.render('messageBoard', {

@@ -6,26 +6,20 @@ var transporter = require('../mailService');
 
 
 router.get('/', function (req, res, next) {
-
-    console.log("\nSIGNUP GET\n---")
+    console.log("\n\n")
 
     if (req.session.email) {
-        // get information from database for the logged in user
-        res.redirect('/profile'); //feeds actually
+        res.redirect('/dashboard');
     }
     else {
-        res.render('sign-up');
+        res.render('signup');
     }
 });
 
 
 router.post('/', function (req, res, next) {
 
-    console.log("\nSIGNUP POST\n---")
-
-    console.log(req.body.name + " : " + req.body.email + " : " + req.body.password + " : " + req.body.confirmPassword + " : " + req.body.collegeID);
-
-
+    console.log("\n\n")
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID) {
         res.render('messageBoard', {
@@ -61,7 +55,7 @@ router.post('/', function (req, res, next) {
         */
 
 
-// check if Email ID is taken
+        // check if Email ID is taken
         var sql = 'select email from user where email like ?';
         var values = [
             [req.body.email]
@@ -83,8 +77,8 @@ router.post('/', function (req, res, next) {
                 });
             }
             else if (results.length === 0) {
-// Email ID is okay
-// check if College ID is taken
+                // Email ID is okay
+                // check if College ID is taken
                 var sql = 'select collegeID from user where collegeID like ?';
                 var values = [
                     [req.body.collegeID]
@@ -106,8 +100,8 @@ router.post('/', function (req, res, next) {
                         });
                     }
                     else if (results.length == 0) {
-// College ID is okay
-// Set sessions
+                        // College ID is okay
+                        // Set sessions
                         req.session.email = req.body.email;
                         req.session.password = req.body.password;
                         // session = req.session.email;
@@ -128,7 +122,7 @@ router.post('/', function (req, res, next) {
                         // }
 
                         console.log("Here")
-// Creating user account
+                        // Creating user account
                         var sql = 'insert into user (name, email, collegeID, password) values ?';
                         var values = [
                             [req.body.name, req.body.email, req.body.collegeID, req.body.password]
@@ -153,8 +147,8 @@ router.post('/', function (req, res, next) {
                                 });
                             }
                             else {
-// Account creation successful
-// MAIL SERVICE
+                                // Account creation successful
+                                // MAIL SERVICE
                                 var html = "<body><center><h1>Hi " + name + " ,</h1><h1>Welcome to University Social Network</h1><h2>Build for students, built by students, nothing more nothing less.</h2></center><p>Greetings from USN. Your account has been successfully created!</p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/new' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
 
                                 var mailOptions = {
