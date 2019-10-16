@@ -1,9 +1,9 @@
-var express = require('express');   //rqd
-var router = express.Router();      //rqd
+var express = require('express');
+var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    // chk if session is set
+    delete req.sessionID
     req.session.destroy(function(err) {
         if(err) {
             // res.negotiate(err);
@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 
         }
         else {
+           
             res.redirect('/');
         }
     });

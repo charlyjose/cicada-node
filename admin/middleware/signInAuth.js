@@ -2,8 +2,8 @@ const db = require('../connectDB');
 
 module.exports = {
     signInAuth(req, res, next) {
-        // If session is set
-        if (req.session.email) {
+        // Session ID set
+        if (req.session) {
             var sql = 'select name, collegeID from user where email like ?';
             var values = [
                 [req.session.email]
@@ -26,7 +26,7 @@ module.exports = {
                 else if (results.length == 0) {
                     // Session deleted from db
                     req.session.error = 'Invalid Login Attempt'
-                    return res.redirect('sign-in');
+                    return res.redirect('signin');
                 }
                 else {
                     res.locals.Name = results[0].name
@@ -35,10 +35,15 @@ module.exports = {
                 }
             });
         }
+        // Session ID not set
+        else if (!req.session) {
+            req.session.error = 'Invalid Login Attempt 1'
+            return res.redirect('signin');
+        }
+        // New User
         else {
-            // Not signed in (NEW signin)
-            req.session.error = 'Invalid Login Attempt 111'
-            return res.redirect('sign-in');
+            console.log('\n\nNew Login\n\n')
+            next()
         }
     }
 }
