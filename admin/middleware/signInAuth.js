@@ -2,6 +2,7 @@ const db = require('../connectDB');
 
 module.exports = {
     signInAuth(req, res, next) {
+        // If session is set
         if (req.session.email) {
             var sql = 'select name, collegeID from user where email like ?';
             var values = [
@@ -35,8 +36,8 @@ module.exports = {
             });
         }
         else {
-            // Not signed in
-            req.session.error = 'Invalid Login Attempt'
+            // Not signed in (NEW signin)
+            req.session.error = 'Invalid Login Attempt 111'
             return res.redirect('sign-in');
         }
     }

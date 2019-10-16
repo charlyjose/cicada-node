@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../connectDB');
 const { signInAuth } = require('../middleware/signInAuth')
 
 router.get('/', function (req, res, next) {
@@ -28,6 +29,7 @@ router.post('/', function (req, res, next) {
         });
     }
     else {
+
         // Check for user account
         var sql = 'select password from user where email like ?';
         var values = [
