@@ -16,15 +16,16 @@ const { Error } = require('../middleware/Error')
 module.exports = {
     newLogin(req, res, next) {
         if (!req.body.email || !req.body.password) {
-            res.render('messageBoard', {
-                title: 'USN | Sign In Error',
-                heading: 'Sorry',
-                subtitle: 'The account requirements are not satisfied.',
-                body: 'Please provide all details.',
-                diagnose: '',
-                comments: '',
-                returnLink: 'signin'
-            });
+            {
+                title = 'USN | Sign In Error',
+                heading = 'Sorry',
+                subtitle = 'The account requirements are not satisfied.',
+                body = 'Please provide all details.',
+                diagnose = '',
+                comments = '',
+                returnLink = 'signin'
+            }
+            Error(res, title, heading, subtitle, body, diagnose, comments, returnLink)
         }
         else {
             // Check for user account
@@ -78,15 +79,6 @@ module.exports = {
                     }
                     else {
                         // Password is wrong
-                        // res.render('messageBoard', {
-                        //     title: 'USN | Sign In Error',
-                        //     heading: 'Sorry',
-                        //     subtitle: 'The account requirements are not satisfied.',
-                        //     body: 'Email ID or Password is wrong.',
-                        //     diagnose: '',
-                        //     comments: '',
-                        //     returnLink: 'signin'
-                        // });
 
                         {
                             title = 'USN | Sign In Error',

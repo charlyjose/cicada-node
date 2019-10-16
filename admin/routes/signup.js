@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../connectDB');
 var transporter = require('../mailService');
-
+const { Error } = require("../middleware/Error")
 
 
 router.get('/', function (req, res, next) {
@@ -18,19 +18,22 @@ router.get('/', function (req, res, next) {
 
 
 router.post('/', function (req, res, next) {
-
     console.log("\n\n")
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID) {
-        res.render('messageBoard', {
-            title: 'USN | Sign Up Error',
-            heading: 'Sorry',
-            subtitle: 'The account requirements are not satisfied.',
-            body: 'Please provide all details.',
-            diagnose: '',
-            comments: '',
-            returnLink: 'signup'
-        });
+
+        {
+            title = 'USN | Sign In Error',
+            heading = 'Sorry',
+            subtitle = 'The account requirements are not satisfied.',
+            body = 'Please provide all details.',
+            diagnose = '',
+            comments = '',
+            returnLink = 'signup'
+        }
+        Error(res, title, heading, subtitle, body, diagnose, comments, returnLink)
+
+
     }
     else {
         var session;
@@ -66,15 +69,16 @@ router.post('/', function (req, res, next) {
                 // DB ERROR
                 console.log('\n\nDB ERROR: ' + err);
 
-                res.render('messageBoard', {
-                    title: 'USN | Error',
-                    heading: 'Ouch!',
-                    subtitle: 'Something went wrong on our side ?',
-                    body: 'Our engineers are looking into it, if you see them tell them code give below.',
-                    diagnose: '',
-                    comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
-                    returnLink: 'logout'
-                });
+                {
+                    title = 'USN | Sign In Error',
+                    heading = 'Ouch!',
+                    subtitle = 'Something went wrong on our side ?',
+                    body = 'Our engineers are looking into it, if you see them tell them code give below.',
+                    diagnose = '',
+                    comments = '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                    returnLink = 'logout'
+                }
+                Error(res, title, heading, subtitle, body, diagnose, comments, returnLink)                
             }
             else if (results.length === 0) {
                 // Email ID is okay
@@ -89,39 +93,23 @@ router.post('/', function (req, res, next) {
                         // DB ERROR
                         console.log('\n\nDB ERROR: ' + err);
 
-                        res.render('messageBoard', {
-                            title: 'USN | Error',
-                            heading: 'Ouch!',
-                            subtitle: 'Something went wrong on our side ?',
-                            body: 'Our engineers are looking into it, if you see them tell them code give below.',
-                            diagnose: '',
-                            comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
-                            returnLink: 'logout'
-                        });
+                        {
+                            title = 'USN | Error',
+                            heading = 'Ouch!',
+                            subtitle = 'Something went wrong on our side ?',
+                            body = 'Our engineers are looking into it, if you see them tell them code give below.',
+                            diagnose = '',
+                            comments = '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                            returnLink = 'logout'
+                        }
+                        Error(res, title, heading, subtitle, body, diagnose, comments, returnLink)
                     }
                     else if (results.length == 0) {
                         // College ID is okay
                         // Set sessions
                         req.session.email = req.body.email;
                         req.session.password = req.body.password;
-                        // session = req.session.email;
 
-                        // var avatar = 'default/avatar-anonymous.png';
-
-                        // if (req.body.gender == 3) {
-                        //     avatar = 'default/avatar-female.png';
-                        // }
-                        // else if (req.body.gender == 2) {
-                        //     avatar = 'default/avatar-male.png';
-                        // }
-                        // else if (req.body.gender == 1) {
-                        //     avatar = 'default/avatar-other.png';
-                        // }
-                        // else if (req.body.gender == 0) {
-                        //     avatar = 'default/avatar-anonymous.png';
-                        // }
-
-                        console.log("Here")
                         // Creating user account
                         var sql = 'insert into user (name, email, collegeID, password) values ?';
                         var values = [
@@ -135,16 +123,16 @@ router.post('/', function (req, res, next) {
                             if (err) {
                                 // DB ERROR
                                 console.log('\n\nDB ERROR: ' + err);
-
-                                res.render('messageBoard', {
-                                    title: 'USN | Error',
-                                    heading: 'Ouch!',
-                                    subtitle: 'Something went wrong on our side ?',
-                                    body: 'Our engineers are looking into it, if you see them tell them code give below.',
-                                    diagnose: '',
-                                    comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
-                                    returnLink: 'logout'
-                                });
+                                {
+                                    title = 'USN | Error',
+                                    heading = 'Ouch!',
+                                    subtitle = 'Something went wrong on our side ?',
+                                    body = 'Our engineers are looking into it, if you see them tell them code give below.',
+                                    diagnose = '',
+                                    comments = '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                                    returnLink = 'logout'
+                                }
+                                Error(res, title, heading, subtitle, body, diagnose, comments, returnLink)
                             }
                             else {
                                 // Account creation successful

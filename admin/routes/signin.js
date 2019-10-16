@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 // const session = require('express-session')
-// const db = require('../connectDB');
 const { signInAuth } = require('../middleware/signInAuth')
 const { newLogin } = require('../middleware/newLogin')
 
